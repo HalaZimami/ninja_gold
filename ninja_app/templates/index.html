@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+
+<body translate="no">
+
+    <div class="wrapper">
+        {% if request.session.counter < 5 %} <div class="golds">
+            <h3>Your Gold: <p>{{request.session.gold}}&#128176;</p>
+            </h3>
+    </div>
+    <div class="boxes">
+        <div class="random farm">
+            <h2 name="place">Farm</h2>
+            <p>(earns 10-20 gold)</p>
+            <a href="/farm" value="place">
+                <div class="find">Find Gold!</div>
+            </a>
+        </div>
+        <div class="random caves">
+            <h2 name="place">Cave</h2>
+            <p>(earns 10-20 gold)</p>
+            <a href="/cave">
+                <div class="find">Find Gold!</div>
+            </a>
+        </div>
+        <div class="random house">
+            <h2 name="place">House</h2>
+            <p>(earns 10-20 gold)</p>
+            <a href="/house">
+                <div class="find">Find Gold!</div>
+            </a>
+        </div>
+        <div class="random quest">
+            <h2 name="place">Quest</h2>
+            <p>(earns/takes <br> 0-50 gold)</p>
+            <a class="quest1" href="/quest">
+                <div class="find">Find Gold!</div>
+            </a>
+        </div>
+    </div>
+    <h3>Activities:</h3>
+    <div class="scroll">
+        {% for i in request.session.log reversed %}
+        {% if 'lost' in i %}
+        <h4 class="text-danger" style="color: #be3144;font-size: 20px;">{{ i }}&#128548</h4>
+        {% else %}
+        <h4 class="text-success" style="color: #379956;font-size: 20px;">{{ i }}&#129297;</h4>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div>
+        <a href="/delete">
+            <div class="delete">Restart</div>
+        </a>
+    </div>
+    {% elif request.session.counter == 5 and request.session.gold > 80 %}
+    <div class="result">
+        <div>
+            <h1 style="font-size: 60px;">You win!</h1>
+            <p style="font-size: 70px;">&#129321</p>
+            <h4 style="font-weight: bold ; color:#379956;">Your gold is {{request.session.gold}}<span style="font-size: 30px;">&#128176;</span></h4>
+        </div>
+        <div>
+            <a href="/delete">
+                <div class="again" style="text-align: center; width: 15%; color: white; background-color: #1a2639;
+                margin: 15px 0px;padding: 8px; border-radius: 5px;">Play Again!</div>
+            </a>
+        </div>
+    </div>
+    {% else %}
+    <div class="result">
+        <div>
+            <h1 style="font-size: 60px;">Game over!</h1>
+            <p style="font-size: 70px;">&#128531</p>
+            <h4 style="font-weight: bold ; color:#be3144;">Your gold is {{request.session.gold}}<span style="font-size: 30px;">&#128176;</span></h4>
+        </div>
+        <div>
+            <a href="/delete">
+                <div class="again" style="text-align: center; width: 15%; color: white; background-color: #1a2639;
+                margin: 15px 0px;padding: 8px; border-radius: 5px;">Play Again!</div>
+            </a>
+        </div>
+    </div>
+    {% endif %}
+
+    </div>
+</body>
+
+</html>

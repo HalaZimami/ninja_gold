@@ -1,0 +1,83 @@
+.wrapper{
+    margin: 1% auto;
+    width: 50%;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.675);
+    border-radius: 5px;
+}
+body{
+background-image: url('img.webp');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+}
+.boxes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.random {
+    width: 22%;
+    border: 2px solid black;
+    margin: 20px 0px;
+    height: 200px;
+    text-align: center;
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #1a2639;
+    color: white;
+}
+
+.random p {
+    font-weight: bold;
+}
+.scroll{
+    width: 100%;
+    height: 150px;
+    line-height: 3em;
+    overflow:scroll;
+    border:thin gray solid;
+    padding: 5px;
+    background-color: transparent;
+    border-radius: 5px;
+}
+.find{
+    position: relative;
+    top: 50px;
+    left: 21px;
+    border: 2px solid black;
+    padding: 5px;
+    width: 70%;
+    color: white;
+    background-color: #007cb9;
+}
+.quest1 div{
+    position: relative;
+    top: 31px;
+}
+h3 p{
+    width: 20%;
+    font-size: 30px;
+    text-align: center;
+}
+.delete{
+    text-align: center;
+    width: 12%;
+    color: white;
+    background-color: #1a2639;
+    margin: 15px 0px;
+    padding: 8px;
+    border-radius: 5px;
+}
+.result{
+    margin:5% auto;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.again{
+    position: relative;
+    left: 43%;
+    top: 25px;
+}
