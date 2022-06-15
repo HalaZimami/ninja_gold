@@ -56,7 +56,7 @@ def quest(request):
     request.session['random']=random.randint(-50, 50)
     request.session['gold']+=request.session['random']
     if request.session['random'] >= 0:
-        request.session['log'].append(f"You entered a quest and earned {request.session['random']} gold. ({time})")
+        request.session['log'].append(f"You completed a quest and earned {request.session['random']} gold. ({time})")
         request.session.save()
     else:
         request.session['log'].append(f"You failed a quest and lost {request.session['random']} gold Ouch. ({time})")
